@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('All ratings')}"></head>
+<body>
+<nav th:replace="~{fragments/layout :: nav}"></nav>
+
+<main class="container">
+    <div th:replace="~{fragments/layout :: flash}"></div>
+
+    <header class="page-head">
+        <h1>Teaching Staff Ratings</h1>
+        <p class="muted">A summary of every rated staff member. Click a row for full details.</p>
+    </header>
+
+    <div th:if="${#lists.isEmpty(ratings)}" class="empty">
+        <p>No ratings yet.</p>
+        <a class="btn btn--primary" th:href="@{/ratings/new}">Add the first rating</a>
+    </div>
+
+    <table th:unless="${#lists.isEmpty(ratings)}" class="table">
+        <thead>
+        <tr>
+            <th>Staff member</th>
+            <th>Role</th>
+            <th class="num">Overall</th>
+            <th class="actions-col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="rating : ${ratings}">
+            <td>
+
+                <a th:href="@{/ratings/{id}(id=${rating.id})}" th:text="${rating.displayTitle}">Prof. Name</a>
+            </td>
+            <td>
+                <span class="badge" th:text="${rating.roleType.label}">Professor</span>
+            </td>
+            <td class="num">
+                <span class="score" th:text="${rating.overallScore}">7.3</span>
+                <span class="muted">/ 10</span>
+            </td>
+            <td class="actions-col">
+                <a class="btn btn--small" th:href="@{/ratings/{id}(id=${rating.id})}">View</a>
+                <a class="btn btn--small" th:href="@{/ratings/{id}/edit(id=${rating.id})}">Edit</a>
+                <a class="btn btn--small btn--danger" th:href="@{/ratings/{id}/delete(id=${rating.id})}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>

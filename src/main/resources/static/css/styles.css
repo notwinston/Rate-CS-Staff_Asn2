@@ -1,0 +1,350 @@
+:root {
+    --bg: #f6f7f9;
+    --surface: #ffffff;
+    --border: #e2e5ea;
+    --text: #1b1f24;
+    --muted: #6b7280;
+    --primary: #2f6feb;
+    --primary-text: #ffffff;
+    --danger: #d64545;
+    --danger-bg: #fdecec;
+    --success-bg: #e8f5ec;
+    --success-text: #1f7a3d;
+    --error-bg: #fdecec;
+    --error-text: #b22;
+    --badge-bg: #eef2f8;
+    --radius: 10px;
+    --shadow: 0 1px 2px rgba(16, 24, 40, 0.06), 0 1px 3px rgba(16, 24, 40, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #14161a;
+        --surface: #1c1f24;
+        --border: #2b2f36;
+        --text: #e8eaed;
+        --muted: #9aa0a8;
+        --primary: #5b8def;
+        --primary-text: #0b0d10;
+        --danger: #e4736f;
+        --danger-bg: #3a1f1f;
+        --success-bg: #17301f;
+        --success-text: #8fd6a6;
+        --error-bg: #3a1f1f;
+        --error-text: #f0a6a3;
+        --badge-bg: #262b33;
+        --shadow: none;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav__brand {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.container {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 24px 16px 64px;
+}
+
+.container--narrow {
+    max-width: 640px;
+}
+
+.page-head h1 {
+    margin-bottom: 4px;
+}
+
+.footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    padding: 24px 16px;
+}
+
+.flash {
+    padding: 10px 14px;
+    border-radius: var(--radius);
+    margin-bottom: 16px;
+    font-size: 0.92rem;
+}
+
+.flash--success {
+    background: var(--success-bg);
+    color: var(--success-text);
+}
+
+.flash--error {
+    background: var(--error-bg);
+    color: var(--error-text);
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.table th,
+.table td {
+    padding: 12px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+}
+
+.table thead th {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    background: var(--badge-bg);
+}
+
+.table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.table a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.table a:hover {
+    text-decoration: underline;
+}
+
+.num {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.score {
+    font-weight: 700;
+}
+
+.actions-col {
+    white-space: nowrap;
+    text-align: right;
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+}
+
+.card__head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.card__head h1 {
+    margin: 0;
+}
+
+.card__actions,
+.form__actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 8px 16px;
+    margin: 0;
+}
+
+.detail-grid dt {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.detail-grid dd {
+    margin: 0;
+    word-break: break-word;
+}
+
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    background: var(--badge-bg);
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--muted);
+}
+
+.muted {
+    color: var(--muted);
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 16px;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.back-link:hover {
+    color: var(--text);
+}
+
+.empty {
+    text-align: center;
+    padding: 48px 16px;
+    background: var(--surface);
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+}
+
+.btn {
+    display: inline-block;
+    padding: 9px 16px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    line-height: 1.2;
+}
+
+.btn:hover {
+    border-color: var(--muted);
+}
+
+.btn--primary {
+    background: var(--primary);
+    color: var(--primary-text);
+    border-color: var(--primary);
+}
+
+.btn--primary:hover {
+    filter: brightness(0.95);
+    border-color: var(--primary);
+}
+
+.btn--danger {
+    color: var(--danger);
+    border-color: var(--danger);
+    background: transparent;
+}
+
+.btn--danger:hover {
+    background: var(--danger-bg);
+}
+
+.btn--small {
+    padding: 5px 10px;
+    font-size: 0.82rem;
+}
+
+.form {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+}
+
+.field {
+    margin-bottom: 16px;
+}
+
+.field label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+}
+
+.field input,
+.field select,
+.field textarea {
+    width: 100%;
+    padding: 9px 11px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 0.95rem;
+    font-family: inherit;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 1px;
+    border-color: var(--primary);
+}
+
+.field textarea {
+    resize: vertical;
+}
+
+.field__error {
+    color: var(--error-text);
+    font-size: 0.83rem;
+    margin: 6px 0 0;
+}
+
+.field-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+@media (max-width: 560px) {
+    .field-row {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-grid dt {
+        margin-top: 8px;
+    }
+}

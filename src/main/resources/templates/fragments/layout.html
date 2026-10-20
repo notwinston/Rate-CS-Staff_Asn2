@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="head(pageTitle)">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title th:text="${pageTitle} + ' · Rate CS Staff'">Rate CS Staff</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+</head>
+
+<body>
+
+<nav th:fragment="nav" class="nav">
+    <a class="nav__brand" th:href="@{/}">Rate CS Staff</a>
+    <a class="btn btn--primary" th:href="@{/ratings/new}">+ Add rating</a>
+</nav>
+
+<div th:fragment="flash">
+    <div class="flash flash--success" th:if="${message}" th:text="${message}"></div>
+    <div class="flash flash--error" th:if="${error}" th:text="${error}"></div>
+</div>
+
+<footer th:fragment="footer" class="footer">
+    <span>Rate CS Teaching Staff — CMPT 276 Assignment 2</span>
+</footer>
+
+</body>
+</html>

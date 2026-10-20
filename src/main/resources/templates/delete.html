@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Confirm delete')}"></head>
+<body>
+<nav th:replace="~{fragments/layout :: nav}"></nav>
+
+<main class="container container--narrow">
+    <a class="back-link" th:href="@{/ratings/{id}(id=${rating.id})}">&larr; Back to detail</a>
+
+    <div class="card">
+        <h1>Delete this rating?</h1>
+        <p>
+            You are about to permanently delete the rating for
+            <strong th:text="${rating.displayTitle}">Prof. Ada Lovelace</strong>
+            (<span th:text="${rating.email}">ada@example.com</span>).
+            This cannot be undone.
+        </p>
+
+        <div class="card__actions">
+
+            <form th:action="@{/ratings/{id}/delete(id=${rating.id})}" method="post">
+                <button type="submit" class="btn btn--danger">Yes, delete</button>
+            </form>
+            <a class="btn" th:href="@{/ratings/{id}(id=${rating.id})}">Cancel</a>
+        </div>
+    </div>
+</main>
+
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>

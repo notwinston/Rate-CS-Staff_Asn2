@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Rating detail')}"></head>
+<body>
+<nav th:replace="~{fragments/layout :: nav}"></nav>
+
+<main class="container">
+    <div th:replace="~{fragments/layout :: flash}"></div>
+
+    <a class="back-link" th:href="@{/}">&larr; Back to all ratings</a>
+
+    <article class="card">
+        <header class="card__head">
+
+            <h1 th:text="${rating.displayTitle}">Prof. Ada Lovelace</h1>
+            <span class="badge" th:text="${rating.roleType.label}">Professor</span>
+        </header>
+
+        <dl class="detail-grid">
+            <dt>Name</dt>
+            <dd th:text="${rating.name}">Ada Lovelace</dd>
+
+            <dt>Email</dt>
+            <dd th:text="${rating.email}">ada@example.com</dd>
+
+            <dt>Role</dt>
+            <dd th:text="${rating.roleType.label}">Professor</dd>
+
+            <dt>Clarity</dt>
+            <dd th:text="${rating.clarity} + ' / 10'">8 / 10</dd>
+
+            <dt>Niceness</dt>
+            <dd th:text="${rating.niceness} + ' / 10'">9 / 10</dd>
+
+            <dt>Knowledge</dt>
+            <dd th:text="${rating.knowledgeableScore} + ' / 10'">10 / 10</dd>
+
+            <dt>Overall</dt>
+            <dd><strong th:text="${rating.overallScore} + ' / 10'">9.0 / 10</strong></dd>
+
+            <dt>Comment</dt>
+            <dd th:text="${rating.comment != null and !rating.comment.isBlank()} ? ${rating.comment} : '—'">
+                Great lectures.
+            </dd>
+
+            <dt>Created</dt>
+            <dd th:text="${rating.createdAt}">2026-01-01T00:00:00Z</dd>
+
+            <dt>Last updated</dt>
+            <dd th:text="${rating.updatedAt}">2026-01-01T00:00:00Z</dd>
+        </dl>
+
+        <div class="card__actions">
+            <a class="btn btn--primary" th:href="@{/ratings/{id}/edit(id=${rating.id})}">Edit</a>
+            <a class="btn btn--danger" th:href="@{/ratings/{id}/delete(id=${rating.id})}">Delete</a>
+        </div>
+    </article>
+</main>
+
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>
