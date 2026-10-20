@@ -1,0 +1,24 @@
+databases:
+  - name: rate-cs-staff-db
+    databaseName: ratecsstaff
+    user: ratecsstaff
+    plan: free
+
+services:
+  - type: web
+    name: rate-cs-staff
+    runtime: java
+    plan: free
+    buildCommand: ./mvnw clean package -DskipTests
+    startCommand: java -jar target/rate-cs-staff-1.0.0.jar
+    envVars:
+      - key: SPRING_DATASOURCE_USERNAME
+        fromDatabase:
+          name: rate-cs-staff-db
+          property: user
+      - key: SPRING_DATASOURCE_PASSWORD
+        fromDatabase:
+          name: rate-cs-staff-db
+          property: password
+      - key: SPRING_DATASOURCE_URL
+        sync: false
