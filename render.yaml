@@ -7,10 +7,9 @@ databases:
 services:
   - type: web
     name: rate-cs-staff
-    runtime: java
+    runtime: docker
+    dockerfilePath: ./Dockerfile
     plan: free
-    buildCommand: ./mvnw clean package -DskipTests
-    startCommand: java -jar target/rate-cs-staff-1.0.0.jar
     envVars:
       - key: SPRING_DATASOURCE_USERNAME
         fromDatabase:
