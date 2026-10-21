@@ -19,5 +19,15 @@ services:
         fromDatabase:
           name: rate-cs-staff-db
           property: password
-      - key: SPRING_DATASOURCE_URL
-        sync: false
+      - key: DB_HOST
+        fromDatabase:
+          name: rate-cs-staff-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: rate-cs-staff-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: rate-cs-staff-db
+          property: database
