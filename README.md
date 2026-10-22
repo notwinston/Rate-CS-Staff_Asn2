@@ -118,7 +118,8 @@ src/main/resources/
 AI tools were used as an assistant during this assignment. Specifically, AI
 helped with:
 
-- **This README** — it was generated with AI assistance.
+- **Documentation** — this README and `TESTING.md` were generated with AI
+  assistance.
 - **Front end** — the Thymeleaf templates and CSS.
 - **Seeding the database** — the sample staff-rating data.
 - **Design planning** — talking through the overall design and the connection

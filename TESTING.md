@@ -80,3 +80,8 @@ Beyond the automated suite, the full CRUD flow was exercised through the browser
 against a real PostgreSQL database: create → detail → edit (overall score
 recomputed) → duplicate-email rejection → delete, with the data confirmed in the
 `staff_rating` table.
+
+## Use of AI
+
+This document was written with AI assistance and reviewed before being included.
+See the "Use of AI" section of the [README](README.md) for the full disclosure.
